@@ -1,12 +1,12 @@
-from curses.ascii import islower
-
-
 class Person:
-    def __init__(self, name, surname, dateOfBirth, dateOfDie):
+    def __init__(self, name, surname, dateOfBirth, dateOfDie, relation):
         self.name = name
         self.surname = surname
         self.dateofBirth = dateOfBirth
         self.dateOfDie = dateOfDie
+        self.relation = {
+            
+        }
 
     def przedstaw_sie(self):
         print(f"Cześć! Jestem {self.name} {self.surname}")
