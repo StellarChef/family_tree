@@ -1,54 +1,25 @@
-class Person:
-    def __init__(self, name, surname, dateOfBirth, dateOfDie, relation):
-        self.name = name
-        self.surname = surname
-        self.dateofBirth = dateOfBirth
-        self.dateOfDie = dateOfDie
-        self.relation = {
-            
-        }
-
-    def przedstaw_sie(self):
-        print(f"Cześć! Jestem {self.name} {self.surname}")
-
-class PersonMenago:
-    person = []
-
-    def addPerson():
-        while True:
-            print("\n----- Dodawanie osoby --------")
-            name = input("name: ")
-            surname = input("surname: ")
-
-            newperson = Person(name,surname)
-            PersonMenago.persons.append(newperson)
-
-            next = input("Do you want to add another person: write t/n")
-
-            if next.lower() == "n":
-                break
-            else:
-                continue
-
-
+import json
+from src.person import Person
+from src.personmanager import PersonManager
 
 def main():
-    persons = []
+    print("If you want to Add new Person please write Add")
+    print("If you want to show people please write show")
+    print("To exit the program write exit")
 
     while True:
-        print("\n---- Dodawanie osoby --------")
-        name = input("Podaj imię: ")
-        surname = input("Podaj nazwisko: ")
+        choice = input("Choose: ").lower()
 
-        new_person = Person(name, surname)
-        persons.append(new_person)
-
-        new_person.przedstaw_sie()
-
-        dalej = input("Dodać kolejną osobę? (t/n): ")
-
-        if dalej.lower() == "n":
+        if choice == "add":
+            PersonManager.addPerson()
+        elif choice == "show":
+            PersonManager.showPeople()
+        elif choice == "exit":
             break
+        else:
+            print("Incorrect data")
+
+    
 
 if __name__ == "__main__":
     main()
